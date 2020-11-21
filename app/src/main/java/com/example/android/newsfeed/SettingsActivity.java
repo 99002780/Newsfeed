@@ -55,12 +55,7 @@ public class SettingsActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
     }
 
-    /**
-     * The NewsPreferenceFragment implements the Preference.OnPreferenceChangeListener interface
-     * to set up to listen for any Preference changes made by the user.
-     * And the NewsPreferenceFragment also implements the DatePickerDialog.OnDateSetListener to
-     * receive a callback when the user has finished selecting a date.
-     */
+
     public static class NewsPreferenceFragment extends PreferenceFragment
             implements Preference.OnPreferenceChangeListener, DatePickerDialog.OnDateSetListener {
 
@@ -101,9 +96,7 @@ public class SettingsActivity extends AppCompatActivity {
             bindPreferenceSummaryToValue(fromDate);
         }
 
-        /**
-         * This method is called when the user has clicked a Preference.
-         */
+
         private void setOnPreferenceClick(Preference preference) {
             preference.setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
@@ -117,9 +110,7 @@ public class SettingsActivity extends AppCompatActivity {
             });
         }
 
-        /**
-         * Show the current date as the default date in the picker
-         */
+
         private void showDatePicker() {
             Calendar calendar = Calendar.getInstance();
             int year = calendar.get(Calendar.YEAR);
@@ -148,13 +139,7 @@ public class SettingsActivity extends AppCompatActivity {
             bindPreferenceSummaryToValue(fromDatePreference);
         }
 
-        /**
-         * This method is called when the user has changed a Preference.
-         * Update the displayed preference summary (the UI) after it has been changed.
-         * @param preference the changed Preference
-         * @param value the new value of the Preference
-         * @return True to update the state of the Preference with the new value
-         */
+
         @Override
         public boolean onPreferenceChange(Preference preference, Object value) {
             String stringValue = value.toString();
@@ -172,10 +157,7 @@ public class SettingsActivity extends AppCompatActivity {
             return true;
         }
 
-        /**
-         * Set this fragment as the OnPreferenceChangeListener and
-         * bind the value that is in SharedPreferences to what will show up in the preference summary
-         */
+
         private void bindPreferenceSummaryToValue(Preference preference) {
             // Set the current NewsPreferenceFragment instance to listen for changes to the preference
             // we pass in using
@@ -189,12 +171,7 @@ public class SettingsActivity extends AppCompatActivity {
             onPreferenceChange(preference, preferenceString);
         }
 
-        /**
-         * Convert selected date string(i.e. "2017-2-1" into formatted date string(i.e. "2017-02-01")
-         *
-         * @param dateString is the selected date from the DatePicker
-         * @return the formatted date string
-         */
+
         private String formatDate(String dateString) {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-M-d");
             Date dateObject = null;

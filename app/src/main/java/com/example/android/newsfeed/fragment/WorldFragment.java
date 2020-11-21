@@ -36,10 +36,7 @@ import com.example.android.newsfeed.R;
 
 import java.util.List;
 
-/**
- * The WorldFragment is a {@link BaseArticlesFragment} subclass that
- * reuses methods of the parent class by passing the specific type of article to be fetched.
- */
+
 public class WorldFragment extends BaseArticlesFragment {
 
     private static final String LOG_TAG = WorldFragment.class.getName();

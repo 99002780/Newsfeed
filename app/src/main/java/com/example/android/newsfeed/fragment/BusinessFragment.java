@@ -36,10 +36,7 @@ import com.example.android.newsfeed.R;
 
 import java.util.List;
 
-/**
- * The BusinessFragment is a {@link BaseArticlesFragment} subclass that
- * reuses methods of the parent class by passing the specific type of article to be fetched.
- */
+
 public class BusinessFragment extends BaseArticlesFragment {
 
     private static final String LOG_TAG = BusinessFragment.class.getName();

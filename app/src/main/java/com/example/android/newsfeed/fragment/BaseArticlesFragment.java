@@ -53,11 +53,7 @@ import com.example.android.newsfeed.utils.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * The BaseArticlesFragment is a {@link Fragment} subclass that implements the LoaderManager.LoaderCallbacks
- * interface in order for Fragment to be a client that interacts with the LoaderManager. It is
- * base class that is responsible for displaying a set of articles, regardless of type.
- */
+
 public class BaseArticlesFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<List<News>>{
 
@@ -75,9 +71,7 @@ public class BaseArticlesFragment extends Fragment
     /** Loading indicator that is displayed before the first load is completed */
     private View mLoadingIndicator;
 
-    /** The {@link SwipeRefreshLayout} that detects swipe gestures and
-     * triggers callbacks in the app.
-     */
+
     private SwipeRefreshLayout mSwipeRefreshLayout;
 
     @Override
@@ -181,9 +175,7 @@ public class BaseArticlesFragment extends Fragment
         restartLoader(isConnected());
     }
 
-    /**
-     *  Check for network connectivity.
-     */
+
     private boolean isConnected() {
         // Get a reference to the ConnectivityManager to check state of network connectivity
         ConnectivityManager connectivityManager = (ConnectivityManager)
@@ -195,13 +187,7 @@ public class BaseArticlesFragment extends Fragment
         return (networkInfo != null && networkInfo.isConnected());
     }
 
-    /**
-     * If there is internet connectivity, initialize the loader as
-     * usual. Otherwise, hide loading indicator and set empty state TextView to display
-     * "No internet connection."
-     *
-     * @param isConnected internet connection is available or not
-     */
+
     private void initializeLoader(boolean isConnected) {
         if (isConnected) {
             // Get a reference to the LoaderManager, in order to interact with loaders.
@@ -219,10 +205,7 @@ public class BaseArticlesFragment extends Fragment
         }
     }
 
-    /**
-     * Restart the loader if there is internet connectivity.
-     * @param isConnected internet connection is available or not
-     */
+
     private void restartLoader(boolean isConnected) {
         if (isConnected) {
             // Get a reference to the LoaderManager, in order to interact with loaders.
@@ -243,9 +226,7 @@ public class BaseArticlesFragment extends Fragment
         }
     }
 
-    /**
-     * When the user performs a swipe-to-refresh gesture, restart the loader.
-     */
+
     private void initiateRefresh() {
         restartLoader(isConnected());
     }

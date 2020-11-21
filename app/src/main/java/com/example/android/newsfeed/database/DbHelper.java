@@ -10,9 +10,6 @@ import androidx.annotation.Nullable;
 
 import com.example.android.newsfeed.database.FeedReaderContract.FeedEntry;
 
-/**
- * This class will help me create a  db  n a  table in db
- */
 public class DbHelper  extends SQLiteOpenHelper {
 
     private static final String SQL_CREATE_ENTRIES =
@@ -33,10 +30,7 @@ public class DbHelper  extends SQLiteOpenHelper {
 
     }
 
-    /**
-     * this method will be called for the first time when the db is created
-     * @param db
-     */
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         Log.i(TAG,"onCreate table");
@@ -45,12 +39,7 @@ public class DbHelper  extends SQLiteOpenHelper {
     }
 
 
-    /**
-     * when app is updated from ver 1-2 you may want to add new columns or delete some cols in new version
-     * @param db
-     * @param oldVersion
-     * @param newVersion
-     */
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i(TAG,"onUpgrade");

@@ -70,26 +70,7 @@ public class DbAccessObj {
     }
 
 
-    public String uservalid(String queryParam) {
-        String table = FeedEntry.TABLE_NAME;
-        String[] columns = {FeedEntry.COLUMN_NAME_TITLE, FeedEntry.COLUMN_NAME_SUBTITLE}; //projection = columns
-        String selection = FeedEntry.COLUMN_NAME_TITLE + " =?"; //selection = rows
-        String[] selectionArgs = {queryParam};
-        String groupBy = null;
-        String having = null;
-        String orderBy = FeedEntry.COLUMN_NAME_TITLE + " DESC";
-        String limit = "10";
-        String register = "Please Register";
-        Cursor cursor = database.query(table, columns, selection, selectionArgs, groupBy, having, orderBy, limit);
-        if (cursor.getCount() >0) {
-            int titleIndex = cursor.getColumnIndexOrThrow(FeedEntry.COLUMN_NAME_TITLE);
-            cursor.moveToLast();
-            String title = cursor.getString(titleIndex);
-            return title;
-        }
-        return register;
 
-}
 
 
 }

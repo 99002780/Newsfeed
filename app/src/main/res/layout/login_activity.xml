@@ -8,69 +8,7 @@
     tools:context=".LoginActivity">
 
 
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="114dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="@string/enter_name"
-        android:inputType="textPersonName"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextPwd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:background="@color/white"
-        android:ems="10"
-        android:hint="@string/enter_pswd"
-        android:inputType="textPassword"
-        android:textColorHint="@android:color/black"
-        app:layout_constraintStart_toStartOf="@+id/editTextName"
-        app:layout_constraintTop_toBottomOf="@+id/editTextName" />
-
-    <Button
-        android:id="@+id/buttonlogin"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="20dp"
-        android:background="@drawable/button_bg"
-        android:onClick="clickHandler"
-        android:text="@string/Login"
-        app:layout_constraintBaseline_toBaselineOf="@+id/buttonput"
-        app:layout_constraintEnd_toStartOf="@+id/buttonput"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <CheckBox
-        android:id="@+id/remember"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="260dp"
-        android:text="@string/remember_pswd"
-        android:textColor="@android:color/holo_red_light"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/buttonput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="148dp"
-        android:layout_marginEnd="3dp"
-        android:background="@drawable/button_bg"
-        android:onClick="handleDb"
-        android:text="@string/Register"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/buttonlogin"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPwd" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

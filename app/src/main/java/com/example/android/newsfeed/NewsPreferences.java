@@ -48,11 +48,7 @@ import static com.example.android.newsfeed.utils.Constants.SHOW_TAGS_PARAM;
 
 public final class NewsPreferences {
 
-    /**
-     * Get Uri.Builder based on stored SharedPreferences.
-     * @param context Context used to access SharedPreferences
-     * @return Uri.Builder
-     */
+
     public static Uri.Builder getPreferredUri(Context context) {
         SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
 
@@ -97,11 +93,7 @@ public final class NewsPreferences {
         return uriBuilder;
     }
 
-    /**
-     * Returns String Url for query
-     * @param context Context used to access getPreferredUri method
-     * @param section News section
-     */
+
     public static String getPreferredUrl(Context context, String section) {
         Uri.Builder uriBuilder = getPreferredUri(context);
         return uriBuilder.appendQueryParameter(SECTION_PARAM, section).toString();

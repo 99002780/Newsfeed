@@ -53,21 +53,14 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 
-/**
- * A {@link NewsAdapter} can provide a card item layout for each news in the data source
- * ( a list of {@link News} objects).
- */
+
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
     private Context mContext;
     private List<News> mNewsList;
     private SharedPreferences sharedPrefs;
 
-    /**
-     * Constructs a new {@link NewsAdapter}
-     * @param context of the app
-     * @param newsList is the list of news, which is the data source of the adapter
-     */
+
     public NewsAdapter(Context context, List<News> newsList) {
         mContext = context;
         mNewsList = newsList;
@@ -172,9 +165,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         });
     }
 
-    /**
-     * Set the user preferred color theme
-     */
+
     private void setColorTheme(ViewHolder holder) {
         // Get the color theme string from SharedPreferences and check for the value associated with the key
         String colorTheme = sharedPrefs.getString(
@@ -203,9 +194,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         }
     }
 
-    /**
-     * Set the text size to the text size the user choose.
-     */
+
     private void setTextSize(ViewHolder holder) {
         // Get the text size string from SharedPreferences and check for the value associated with the key
         String textSize = sharedPrefs.getString(
@@ -249,10 +238,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         }
     }
 
-    /**
-     * Share the article with friends in social network
-     * @param news {@link News} object
-     */
+
     private void shareData(News news) {
         Intent sharingIntent = new Intent(Intent.ACTION_SEND);
         sharingIntent.setType("text/plain");
@@ -262,32 +248,20 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
                 mContext.getString(R.string.share_article)));
     }
 
-    /**
-     *  Clear all data (a list of {@link News} objects)
-     */
+
     public void clearAll() {
         mNewsList.clear();
         notifyDataSetChanged();
     }
 
-    /**
-     * Add  a list of {@link News}
-     * @param newsList is the list of news, which is the data source of the adapter
-     */
+
     public void addAll(List<News> newsList) {
         mNewsList.clear();
         mNewsList.addAll(newsList);
         notifyDataSetChanged();
     }
 
-    /**
-     * Convert date and time in UTC (webPublicationDate) into a more readable representation
-     * in Local time
-     *
-     * @param dateStringUTC is the web publication date of the article (i.e. 2014-02-04T08:00:00Z)
-     * @return the formatted date string in Local time(i.e "Jan 1, 2000  2:15 AM")
-     * from a date and time in UTC
-     */
+
     private String formatDate(String dateStringUTC) {
         // Parse the dateString into a Date object
         SimpleDateFormat simpleDateFormat =
@@ -314,36 +288,6 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.ViewHolder> {
         return df.format(date);
     }
 
-    /**
-     * Get the formatted web publication date string in milliseconds
-     * @param formattedDate the formatted web publication date string
-     * @return the formatted web publication date in milliseconds
-     */
-    private static long getDateInMillis(String formattedDate) {
-        SimpleDateFormat simpleDateFormat =
-                new SimpleDateFormat("MMM d, yyyy  h:mm a");
-        long dateInMillis;
-        Date dateObject;
-        try {
-            dateObject = simpleDateFormat.parse(formattedDate);
-            dateInMillis = dateObject.getTime();
-            return dateInMillis;
-        } catch (ParseException e) {
-            Log.e("Problem parsing date", e.getMessage());
-            e.printStackTrace();
-        }
-        return 0;
-    }
 
-    /**
-     * Get the time difference between the current date and web publication date
-     * @param formattedDate the formatted web publication date string
-     * @return time difference (i.e "9 hours ago")
-     */
-    private CharSequence getTimeDifference(String formattedDate) {
-        long currentTime = System.currentTimeMillis();
-        long publicationTime = getDateInMillis(formattedDate);
-        return DateUtils.getRelativeTimeSpanString(publicationTime, currentTime,
-                DateUtils.SECOND_IN_MILLIS);
-    }
+
 }

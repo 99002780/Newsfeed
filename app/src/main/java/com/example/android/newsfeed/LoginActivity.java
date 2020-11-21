@@ -125,36 +125,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(hIntent);
     }
 
-    private void getCredentials() {
 
-        String userentry = nameEditText.getText().toString();
-        String username = dbAccessObj.uservalid(userentry);
-        String pwd = dbAccessObj.query(userentry);
-        String userpwd = pwdEditText.getText().toString();
-        if (userentry.equals(username)) {
-            if (pwd.equals(userpwd)) {
-                startHome();
-            } else {
-                Toast.makeText(this, "Invalid Password", Toast.LENGTH_SHORT).show();
-            }
-        } else {
-            Toast.makeText(this, "Invalid Username Kindly register", Toast.LENGTH_SHORT).show();
-        }
-
-    }
-
-
-    public void handleDb(View view) {
-            switch (view.getId()) {
-                case R.id.buttonput:
-                    String title = nameEditText.getText().toString();
-                    String subtitle = pwdEditText.getText().toString();
-
-                    dbAccessObj.createRow(title, subtitle);
-
-                    break;
-            }
-        }
         }
 
 
